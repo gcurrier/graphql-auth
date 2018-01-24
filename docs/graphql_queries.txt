@@ -1,0 +1,27 @@
+# login a user
+mutation{
+  login(email:"test@test.com",password:"password") {
+    email
+  }
+}
+
+# logout a user
+mutation{
+  logout{
+    email
+  }
+}
+
+# user sign-up
+mutation{
+    signup(email: "test@test.com", password: "password"){
+        email
+    }
+}
+
+# check credentials
+{
+  user{
+    email
+  }
+}

@@ -21,7 +21,8 @@ mutation{
 
 # check credentials
 {
-  user{
+  user {
+    id
     email
   }
 }

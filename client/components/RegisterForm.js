@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import AuthForm from './AuthForm';
-import mutation from '../mutations/Login';
 import {graphql} from 'react-apollo';
+import mutation from '../mutations/Register';
 import query from '../queries/CurrentUser';
-import {hashHistory} from 'react-router';
+import {hashHistory} from "react-router";
 
-class LoginForm extends Component {
+
+class RegisterForm extends Component {
   constructor(props) {
     super(props);
 
@@ -16,7 +17,7 @@ class LoginForm extends Component {
     // this.props //the current set of props
     // nextProps //next set of props to be used when the component rerenders
     // console.log(this.props,nextProps);
-    if (!this.props.data.user && nextProps.data.user){
+    if (nextProps.data.user && !this.props.data.user) {
       //redirect to dashboard
       hashHistory.push('/Dashboard');
     }
@@ -36,7 +37,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <h3>Login</h3>
+        <h3>Register</h3>
         <AuthForm
           errors={this.state.errors}
           onSubmit={this.onSubmit.bind(this)}/>
@@ -46,5 +47,5 @@ class LoginForm extends Component {
 }
 
 export default graphql(query)(
-  graphql(mutation)(LoginForm)
+  graphql(mutation)(RegisterForm)
 );
